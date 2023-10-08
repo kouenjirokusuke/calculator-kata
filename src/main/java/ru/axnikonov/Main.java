@@ -34,12 +34,16 @@ public class Main {
             checkLimitNumber(expression);
         }
 
+
+        final Integer result;
         switch(expression[1]) {
-            case "+" -> printAnswer(addition(expression).toString());
-            case "-" -> printAnswer(subtraction(expression).toString());
-            case "*" -> printAnswer(multiplication(expression).toString());
-            case "/" -> printAnswer(division(expression).toString());
+            case "+" -> result = addition(expression);
+            case "-" -> result = subtraction(expression);
+            case "*" -> result = multiplication(expression);
+            case "/" -> result = division(expression);
+            default -> throw new RuntimeException("Invalid operator.");
         }
+        printAnswer(result.toString());
     }
 
     public static Integer addition(String[] expression) {
